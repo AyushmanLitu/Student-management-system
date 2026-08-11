@@ -1,14 +1,20 @@
 [
     {
-        "id": 1,
+        "id": "6EZQMKA",
         "name": "Ayushman",
         "age": 20,
         "qualification": "Graduation"
     },
     {
-        "id": 2,
+        "id": "PD78GT1",
         "name": "Niranjan",
         "age": 20,
-        "qualification": "graduation"
+        "qualification": "Graduation"
+    },
+    {
+        "id": "L16TI40",
+        "name": "Sambit",
+        "age": 21,
+        "qualification": "Diploma"
     }
 ]
