@@ -28,7 +28,7 @@ class Student:
 studentNameList = [info["name"] for info in data if "name" in info]
 def check_if_exits(obj):
     if obj.name in studentNameList:
-        print(f"{obj.name} is already exsits.")
+        print(f"{obj.name} is exsits.")
         return False
     else:
         return True
@@ -66,6 +66,40 @@ def displayStudents():
         print(info["name"],info["age"])
 
 
+# Search using unique ids
+def searchStudentbyId(student_id):
+    realId = student_id.upper()
+    if len(student_id) != 7:
+        print("given Id is invalid.")
+        return False
+    for info in data:
+        if realId == info["id"]:
+            print(f"| name : {info["name"]},| age : {info["age"]},| qualification : {info["qualification"]} |")
+            return True
+    print("Student with id doesn't exists")
+
+
+def deleteStudentById(student_id):
+    realId = student_id.upper()
+    if realId in studentIds:
+        choice = input("Are u sure (yes or no) : ")
+        if choice == "yes":
+            studentIds.remove(realId)
+            for info in data:
+                if info["id"] == realId:
+                    data.remove(info)
+                    break
+            with open("studentData.json","w")as file:
+                json.dump(data,file,indent=4)
+        elif choice == "no":
+            print("data is still intact.")
+        else:
+            print("Invalid choice..try again.")
+            return
+    else:
+        print("This id does not exists")
+
+
 # # making new studetns
 Litu = Student(None,"Ayushman",20,"Graduation")
 saveInDatabase(Litu)
@@ -74,14 +108,5 @@ saveInDatabase(vicky)
 babul = Student(None,"Sambit",21,"Diploma")
 saveInDatabase(babul)
 
-# # Search using unique ids
-def searchStudentbyId(student_id):
-    realId = student_id.upper()
-    if len(student_id) != 7:
-        print("given Id is invalid.")
-    for info in data:
-        if realId == info["id"]:
-            print(f"| name : {info["name"]},| age : {info["age"]},| qualification : {info["qualification"]} |")
-            return
-    print("Student with id doesn't exists")
 searchStudentbyId("l16ti40")
+# deleteStudentById("l16ti40")

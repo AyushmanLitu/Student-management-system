@@ -8,4 +8,6 @@ giving them unique id
 </br>
 making a function that will make the object to dictionary and send it to the json file
 </br>
-on future -> making a proper unique id and adding some extra features
+Features : add students, delete students by their given ids
+</br>
+in future im going add the course and marks
